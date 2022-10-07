@@ -39,31 +39,33 @@ async def _human_time_duration(seconds):
 @Client.on_message(other_filters2)
 async def start(_, message: Message):
         await message.reply_text(
-        f"""Hello {message.from_user.mention()}, My name is {BOT_NAME}.
-I'm a telegram streaming bot with some useful features.
-Feel free to add me to your groups.
+        f"""مرحبا {message.from_user.mention()}, انا {BOT_NAME}.
+        
+• استطيع تشغيل الموسيقي بدون تقطيع وبجوده فائقه في الجروبات والقنوات
+
+• لا تتردد في إضافتي إلى مجموعاتك.
         """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [                   
                     InlineKeyboardButton(
-                        "Commands & Help ❔", callback_data="cbbasic"
+                        "اوامر التشغيل", callback_data="cbbasic"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "How to Use Me ❓", callback_data="cbhowtouse"
+                        "طريقة استخدامي", callback_data="cbhowtouse"
                     ),
                   ],[
                     InlineKeyboardButton(
-                       "Updates", url=f"https://t.me/{UPDATES_CHANNEL}"
+                       "SouRce TeleGod", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                     InlineKeyboardButton(
-                       "Support", url=f"https://t.me/{GROUP_SUPPORT}"
+                       "جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
                     )
                 ],[
                     InlineKeyboardButton(
-                        "➕ Add Me To Your Group ➕",
+                        "ضيفني لمجموعتك ➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ]
@@ -72,17 +74,42 @@ Feel free to add me to your groups.
      disable_web_page_preview=True
     )
 
-
-@Client.on_message(command(["repo", "source"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["مبرمج السورس", f"صلاح", f"سحس", f"المبرمج"]) & filters.group & ~filters.edited)
+async def start(client: Client, message: Message):
+    await message.reply_photo(
+        photo=f"https://telegra.ph/file/c11147b8c614b2b647428.jpg",
+        caption=f"""Programmer [TeleGod](https://t.me/SR_TeleGod) 𖡼\nᴛᴏ ᴄᴏᴍᴍụɴɪᴄᴀᴛᴇ ᴛᴏɢᴇᴛʜᴇʀ 𖡼\nғᴏʟʟᴏᴡ ᴛʜᴇ ʙụᴛᴛᴏɴѕ ʟᴏᴡᴇʀ 𖡼""",
+        reply_markup=InlineKeyboardMarkup(
+         [
+            [
+                InlineKeyboardButton("DEV SALAH", url=f"https://t.me/BK_ZT"),
+            ],
+            [
+                InlineKeyboardButton(
+                    "SouRce TeleGod", url=f"https://t.me/sr_TeleGod"
+                ),
+            ],
+            [
+                InlineKeyboardButton("ضيف البوت لمجموعتك ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"),
+            ]
+         ]
+     )
+  )
+  
+@Client.on_message(command(["سورس", "source", f"السورس", f"تلي جود"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/f01f58c3d9b187ae1d8a1.jpg",
-        caption=f"""Here Is The Source Code Fork And Give Stars ✨""",
+        photo=f"https://telegra.ph/file/c11147b8c614b2b647428.jpg",
+        caption=f"""WelCome To SouRce TeleGod Music ✨""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        " ʀᴇᴘᴏ ⚒️", url=f"https://github.com/AMANTYA1/RaiChu-MusicV2")
+                        "DeveLoPer", url=f"https://t.me/Bk_ZT")
+            ],
+            [
+                InlineKeyboardButton(
+                    "SouRce TeleGod", url=f"https://t.me/sr_TeleGod"
                 ]
             ]
         ),

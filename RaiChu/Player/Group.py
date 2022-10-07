@@ -73,25 +73,25 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-@Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["uptime", f"وقت التشغيل"]) & ~filters.edited)
 @authorized_users_only
 async def get_uptime(client: Client, message: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 🅡🅐🅘🅒🅗🅤  🅑🅞🅣  🅢🅣🅐🅣🅢:\n"
-        f"➤ **ᴜᴘᴛɪᴍᴇ:** `{uptime}`\n"
-        f"➤ **sᴛᴀʀᴛ ᴛɪᴍᴇ:** `{START_TIME_ISO}`"
+        "🤖 🅡🅐🅘🅒🅗🅤  🅑🅞🅣  🅢🅣🅐🅣🅢 : \n"
+        f"➤ **وقت التشغيل :** `{uptime}`\n"
+        f"➤ **وقت البدأ : ** `{START_TIME_ISO}`"
     )
 
-@Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(command(["ping", f"بينج"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
     start = time()
-    m_reply = await message.reply_text("ᴘɪɴɢɪɴɢ...")
+    m_reply = await message.reply_text("جاري قياس سرعة النت...")
     delta_ping = time() - start
     await m_reply.edit_text(
-        "✈ `ᴘᴏɴɢ!!`\n"
+        "✈ `البينج !!`\n"
         f"☣ `{delta_ping * 1000:.3f} ᴍs`"
     )
 
@@ -101,15 +101,15 @@ async def start(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        f"""✔ **ʙᴏᴛ ɪs ʀᴜɴɴɪɴɢ**\n<b>☣ **ᴜᴘᴛɪᴍᴇ:**</b> `{uptime}`""",
+        f"""✔ **تشغيل البوت **\n<b>☣ **مدة التشغيل :**</b> `{uptime}`""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "☢ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "SouRce TeleGod", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ]
             ]
@@ -117,15 +117,15 @@ async def start(client: Client, message: Message):
     )
 
 
-@Client.on_message(command(["help", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["help", f"مساعده"]) & filters.group & ~filters.edited)
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>☢ ʜᴇʟʟᴏ {message.from_user.mention()}, ᴘʟᴇᴀsᴇ ᴛᴀᴘ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ sᴇᴇ ᴛʜᴇ ʜᴇʟᴘ ᴍᴇssᴀɢᴇ ʏᴏᴜ ᴄᴀɴ ʀᴇᴀᴅ ғᴏʀ ᴜsɪɴɢ ᴛʜɪs ʙᴏᴛ</b>""",
+        f"""<b>☢ مرحبا {message.from_user.mention()}, يرجى النقر فوق الزر أدناه لرؤية رسالة المساعدة التي يمكنك قراءتها لاستخدام هذا الروبوت</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="✔ ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"
+                        text="اوامر المساعده", url=f"https://t.me/{BOT_USERNAME}?start=help"
                     )
                 ]
             ]

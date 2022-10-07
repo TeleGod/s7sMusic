@@ -12,13 +12,13 @@ from RaiChu.config import SUDO_USERS as SUDOERS
 @app.on_message(filters.command("speedtest") & ~filters.edited)
 async def run_speedtest(_, message):
     userid = message.from_user.id
-    m = await message.reply_text("__Processing__...")
+    m = await message.reply_text("__جاري حساب سرعة البوت__...")
     try:
         test = speedtest.Speedtest()
         test.get_best_server()
-        m = await m.edit("🔥 __running download speedtest__")
+        m = await m.edit("🔥 __سرعة التنزيل__")
         test.download()
-        m = await m.edit("🔥 __running upload speedtest__")
+        m = await m.edit("🔥 __سرعة الرفع__")
         test.upload()
         test.results.share()
     except speedtest.ShareResultsConnectFailure:
@@ -27,7 +27,7 @@ async def run_speedtest(_, message):
         await m.edit_text(e)
         return
     result = test.results.dict()
-    m = await m.edit_text("💠 Sharing Speedtest")
+    m = await m.edit_text("💠 سرعة البوت")
     if result["share"]:
         path = wget.download(result["share"])
         try:
@@ -36,21 +36,21 @@ async def run_speedtest(_, message):
             c.save(path)
         except BaseException:
             pass
-    output = f"""💡 **SpeedTest Results**
+    output = f"""💡 **نتيجة اختبار السرعة**
     
-<u>**Client:**</u>
+<u>**عميل :**</u>
 
-**ISP:** {result['client']['isp']}
-**Country:** {result['client']['country']}
+**مزود خدمة الإنترنت :** {result['client']['isp']}
+**دولة :** {result['client']['country']}
   
-<u>**Server:**</u>
+<u>**معلومات السيرفر :**</u>
 
-**Name:** {result['server']['name']}
-**Country:** {result['server']['country']}, {result['server']['cc']}
-**Sponsor:** {result['server']['sponsor']}
-**Latency:** {result['server']['latency']}  
+**الاسم :** {result['server']['name']}
+**الدوله :** {result['server']['country']}, {result['server']['cc']}
+**كفيل :** {result['server']['sponsor']}
+**وقت الإستجابة :** {result['server']['latency']}  
 
-⚡ **Ping:** {result['ping']}"""
+⚡ **البينج :** {result['ping']}"""
     if result["share"]:
         msg = await app.send_photo(
             chat_id=message.chat.id, photo=path, caption=output

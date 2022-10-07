@@ -15,33 +15,34 @@ from RaiChu.inline import menu_markup, song_download_markup, stream_markup, audi
 @Client.on_callback_query(filters.regex("cbstart"))
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""Hello , My name is {BOT_NAME}.
+        f"""✨ **مرحبا عزيزي » {message.from_user.mention()} !**\n
+• **᥀︙انا بوت استطيع تشغيل الاغاني والموسيقى في المكالمات  الصوتية! 
 
-I'm a telegram streaming bot with some useful features.
+᥀︙ لمعرفة اوامر هذا البوت اضغط على » اوامر التشغيل!
 
-Feel free to add me to your groups.
+᥀︙ لمعرفة طريقة تشغيل هذا البوت اضغط على » طريقة التشغيل
         """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [                   
                     InlineKeyboardButton(
-                        "Commands & Help ❔", callback_data="cbbasic"
+                        "اوامر التشغيل", callback_data="cbbasic"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "How to Use Me ❓", callback_data="cbhowtouse"
+                        "طريقة التشغيل", callback_data="cbhowtouse"
                     ),
                   ],[
                     InlineKeyboardButton(
-                       "Updates", url=f"https://t.me/{UPDATES_CHANNEL}"
+                       "SouRce TeleGod", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                     InlineKeyboardButton(
-                       "Support", url=f"https://t.me/{GROUP_SUPPORT}"
+                       "جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
                     )
                 ],[
                     InlineKeyboardButton(
-                        "➕ Add Me To Your Group ➕",
+                        "ضيفني لمجموعتك ➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ]
@@ -54,49 +55,50 @@ Feel free to add me to your groups.
 @Client.on_callback_query(filters.regex("cbhowtouse"))
 async def cbguides(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""❓ **Basic Guide for using this bot:**
+        f"""❓ **الدليل الأساسي لاستخدام هذا البوت:
 
-1.) **First, add me to your group.**
-2.) **Then, promote me as administrator and give all permissions except Anonymous Admin.**
-3.) **After promoting me, type /reload in group to refresh the admin data.**
-3.) **Add @{ASSISTANT_NAME} to your group or type /userbotjoin to invite her.**
-4.) **Turn on the video chat first before start to play video/music.**
-5.) **Sometimes, reloading the bot by using /reload command can help you to fix some problem.**
+ 1 ↤ أولاً ، أضفني إلى مجموعتك
+ 2 ↤ بعد ذلك ، قم بترقيتي كمشرف ومنح جميع الصلاحيات باستثناء الوضع الخفي
+ 3 ↤ بعد ترقيتي ، اكتب /reload مجموعة لتحديث بيانات المشرفين
+ 4 ↤ أضف @{ASSISTANT_NAME} إلى مجموعتك أو اكتب انضم لدعوة حساب المساعد
+ 5 ↤ قم بتشغيل المكالمة  أولاً قبل البدء في تشغيل الفيديو / الموسيقى
+ 6 ↤ في بعض الأحيان ، يمكن أن تساعدك إعادة تحميل البوت باستخدام الأمر /reload في إصلاح بعض المشكلات
+ 📌 إذا لم ينضم البوت إلى المكالمة ، فتأكد من تشغيل المكالمة  بالفعل ، أو اكتب /userbotleave ثم اكتب /userbotjoin مرة أخرى
 
-📌 **If the userbot not joined to video chat, make sure if the video chat already turned on, or type /userbotleave then type /userbotjoin again.**
+💡 إذا كانت لديك أسئلة  حول هذا البوت ، فيمكنك إخبارنا منن خلال جروب الدعم الخاصة بي هنا ↤ @{GROUP_SUPPORT}
 
-💡 **If you have a follow-up questions about this bot, you can tell it on my support chat here: @{GROUP_SUPPORT}***""",
+⚡ قناة البوت @{UPDATES_CHANNEL}""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Back", callback_data="cbstart")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbstart")]]
         ),
     )
 
 @Client.on_callback_query(filters.regex("cbbasic"))
 async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
-        f"""ℹ️ Command Menu
+        f"""ℹ️ اوامر التشغيل
 
-🤷 » /id - To get user id
+🤷 » /id - لجلب ايدي
 
-👩🏻‍💼 » /tm - to get telegraph img link
+👩🏻‍💼 » /tm - لجلب لينك الميديا
 
-👩🏻‍💼 » /q - to get reply message in stickers
+👩🏻‍💼 » /q - لتحويل استيكر
 
-👩🏻‍💼 » /speedtest - To get Speedtest 
+👩🏻‍💼 » /speedtest - لقياس سرعة البوت
 
-👩🏻‍💼 » /play - Type this with give the song title or youtube link or audio file to play Music. (Remember to don't play YouTube live stream by using this command!, because it will cause unforeseen problems.)
+👩🏻‍💼 » /play - تشغيل - لتشغيل الموسيقي في المكالمه
 
-👩🏻‍💼 » /vplay - Type this with give the song title or youtube link or video file to play Video. (Remember to don't play YouTube live video by using this command!, because it will cause unforeseen problems.)
+👩🏻‍💼 » /vplay - لتشغيل الفيديوهات
 
-👩🏻‍💼 » /vstream - Type this with give the YouTube live stream video link or m3u8 link to play live Video. (Remember to don't play local audio/video files or non-live YouTube video by using this command!, because it will cause unforeseen problems.)
+👩🏻‍💼 » /vstream - لتشغيل بث مباشر
 
-🤷 » /skip - To Skip current song
+🤷 » /skip - تخطي - لتخطي التشغيل
 
-🤷 » /repo - To get the repo of RaiChu-Music
+🤷 » /repo - لجلب الريبو
 
-🙋 » /end - To end play song in vc.""",
+🙋 » /end - ايقاف  - لايقاف التشغيل""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbstart")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbstart")]]
         ),
     )
 
@@ -104,17 +106,17 @@ async def cbbasic(_, query: CallbackQuery):
 async def cbmenu(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("💡 المشرف الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     chat_id = query.message.chat.id
     user_id = query.message.from_user.id
     buttons = menu_markup(user_id)
     if chat_id in QUEUE:
-          await query.answer("Control Panel Opened")
+          await query.answer("تم فتح لوحة التحكم")
           await query.edit_message_reply_markup(         
               reply_markup=InlineKeyboardMarkup(buttons),
           )
     else:
-        await query.answer("❌ Nothing is Currently Streaming", show_alert=True)
+        await query.answer("❌ لا شيء يتدفق حاليا", show_alert=True)
 
 @Client.on_callback_query(filters.regex("cbdown"))
 async def cbdown(_, CallbackQuery):
@@ -178,11 +180,11 @@ async def song_helper_cb(client, CallbackQuery):
                 )
         keyboard.row(
             InlineKeyboardButton(
-                text="🔙 Back",
+                text="🔙 رجوع",
                 callback_data=f"song_back {stype}|{videoid}",
             ),
             InlineKeyboardButton(
-                text="✖️ Close ", callback_data=f"cls"
+                text="✖️ اغلاق ", callback_data=f"cls"
             ),
         )
         return await CallbackQuery.edit_message_reply_markup(
@@ -216,11 +218,11 @@ async def song_helper_cb(client, CallbackQuery):
             )
         keyboard.row(
             InlineKeyboardButton(
-                text="🔙 Back",
+                text="🔙 رجوع",
                 callback_data=f"song_back {stype}|{videoid}",
             ),
             InlineKeyboardButton(
-                text="✖️ Close", callback_data=f"cls"
+                text="✖️ اغلاق", callback_data=f"cls"
             ),
         )
         return await CallbackQuery.edit_message_reply_markup(
@@ -312,7 +314,7 @@ async def song_download_cb(client, CallbackQuery):
 async def cbhome(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("💡 المشرف الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     chat_id = query.message.chat.id
     user_id = query.message.from_user.id
     buttons = stream_markup(user_id, dlurl)
@@ -322,11 +324,11 @@ async def cbhome(_, query: CallbackQuery):
               reply_markup=InlineKeyboardMarkup(buttons),
           )
     else:
-        await query.answer("❌ Nothing is Currently Streaming", show_alert=True)
+        await query.answer("❌ لا شيء يتدفق حاليا", show_alert=True)
     
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 Only admin with manage voice chats permission that can tap this button !", show_alert=True)
+        return await query.answer("💡 المشرف الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     await query.message.delete()
