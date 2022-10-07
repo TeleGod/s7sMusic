@@ -25,7 +25,7 @@ bcl = InlineKeyboardMarkup(
 )
 
 
-@Client.on_message(command(["reload", f"reload@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["reload", f"reload@{BOT_USERNAME}", f"تحديث"]) & other_filters)
 @authorized_users_only
 async def update_admin(client, message):
     global admins
@@ -35,7 +35,7 @@ async def update_admin(client, message):
         new_admins.append(u.user.id)
     admins[message.chat.id] = new_admins
     await message.reply_text(
-        "✅ تم إعادة تحميل البوت ** بشكل صحيح **  \n✅ ** تم تحديث قائمة المشرفين ** **! ** ""
+        "✅ تم إعادة تحميل البوت ** بشكل صحيح **  \n✅ ** تم تحديث قائمة المشرفين ** **! ** "
     )
 
 
