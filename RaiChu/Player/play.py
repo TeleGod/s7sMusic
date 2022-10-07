@@ -194,7 +194,7 @@ async def play(c: Client, m: Message):
                 gcname = m.chat.title
                 videoid = search[4]
                 dlurl = f"https://www.youtubepp.com/watch?v={videoid}"
-                info = f"https://t.me/elsaa_Ro_bot?start=info_{videoid}"
+                info = f"https://t.me/te_god"
                 keyboard = stream_markup(user_id, dlurl)
                 playimg = await play_thumb(videoid)
                 queueimg = await queue_thumb(videoid)
@@ -214,7 +214,7 @@ async def play(c: Client, m: Message):
                         )
                         await m.reply_photo(
                             photo=queueimg,
-                            caption=f"⏳ تمت الإضافة إلى قائمة الانتظار في {pos}\n\n👤طلب الكائن دا :{requester}\nمعلومات التشغيل- [المزيد]({info})",
+                            caption=f"⏳ تمت الإضافة إلى قائمة الانتظار في {pos}\n\n👤طلب الكائن دا :{requester}\nمزيد من المعلومات : [اضغط هنا]({info})",
                             reply_markup=InlineKeyboardMarkup(keyboard),
                         )
                     else:
@@ -234,7 +234,7 @@ async def play(c: Client, m: Message):
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                             await m.reply_photo(
                                 photo=playimg,
-                                caption=f"📡 تم تشغيل ملف صوتي بنجاح 💡\n\n👤طلب الكائن دا:{requester}\nمعلومات التشغيل- [المزيد]({info})",
+                                caption=f"📡 تم تشغيل ملف صوتي بنجاح 💡\n\n👤طلب الكائن دا:{requester}\nمزيد من المعلومات : [اضغط هنا]({info})",
                                 reply_markup=InlineKeyboardMarkup(keyboard),
                             )
                         except Exception as ep:
