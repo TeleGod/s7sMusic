@@ -29,11 +29,11 @@ def ytsearch(query):
 def audio_markup(user_id):
   buttons = [
     [
-      InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data=f'cbmenu | {user_id}'),
-      InlineKeyboardButton(text="• Iɴʟɪɴᴇ", switch_inline_query_current_chat=""),
+      InlineKeyboardButton(text="• القائمة", callback_data=f'cbmenu | {user_id}'),
+      InlineKeyboardButton(text="• الازرار", switch_inline_query_current_chat=""),
     ],
     [
-      InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data=f'cls'),
+      InlineKeyboardButton(text="• اغلاق", callback_data=f'cls'),
     ],
   ]
   return buttons
@@ -41,31 +41,31 @@ def audio_markup(user_id):
 def stream_markup(user_id, dlurl):
   buttons = [
     [
-      InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
-      InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}'),
-      InlineKeyboardButton(text="‣‣I", callback_data=f'cbskip | {user_id}'),
-      InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
+      InlineKeyboardButton(text="II", callback_data=f'قفل | {user_id}'),
+      InlineKeyboardButton(text="▷", callback_data=f'استئناف | {user_id}'),
+      InlineKeyboardButton(text="‣‣I", callback_data=f'تخطي | {user_id}'),
+      InlineKeyboardButton(text="▢", callback_data=f'ايقاف | {user_id}')
     ],
     [
-      InlineKeyboardButton(text="• ᴍᴇɴᴜ •", switch_inline_query_current_chat=""),
-      InlineKeyboardButton(text="• ʏᴏᴜᴛᴜʙᴇ •", url=f"{dlurl}")
+      InlineKeyboardButton(text="• القائمة •", switch_inline_query_current_chat=""),
+      InlineKeyboardButton(text="• يوتيوب •", url=f"{dlurl}")
     ],
     [
-      InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data=f'cls'),
+      InlineKeyboardButton(text="اغلاق", callback_data=f'cls'),
     ],
   ]
   return buttons
 
 def menu_markup(user_id):
   buttons = [
-     [InlineKeyboardButton(text="II", callback_data=f'cbpause | {user_id}'),
-      InlineKeyboardButton(text="▷", callback_data=f'cbresume | {user_id}')],
-     [InlineKeyboardButton(text="‣‣I", callback_data=f'cbskip | {user_id}'),
-      InlineKeyboardButton(text="▢", callback_data=f'cbstop | {user_id}')
+     [InlineKeyboardButton(text="II", callback_data=f'ايقاف | {user_id}'),
+      InlineKeyboardButton(text="▷", callback_data=f'استئناف | {user_id}')],
+     [InlineKeyboardButton(text="‣‣I", callback_data=f'تخطي | {user_id}'),
+      InlineKeyboardButton(text="▢", callback_data=f'ايقاف | {user_id}')
     ],
-     [InlineKeyboardButton(text="🔇", callback_data=f'cbmute | {user_id}'),
-      InlineKeyboardButton(text="ᴜᴩᴅᴀᴛᴇs", url=f"https://t.me/BotDuniyaXd"),
-      InlineKeyboardButton(text="🔊", callback_data=f'cbunmute | {user_id}')],
+     [InlineKeyboardButton(text="🔇", callback_data=f'تم كتم | {user_id}'),
+      InlineKeyboardButton(text="SouRce TeleGod", url=f"https://t.me/sr_telegod"),
+      InlineKeyboardButton(text="🔊", callback_data=f'تم الغاء كتم | {user_id}')],
   ]
   return buttons
 
@@ -73,17 +73,17 @@ def song_download_markup(videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text="⬇️ ᴀᴜᴅɪᴏ",
+                text="⬇️ موسيقي",
                 callback_data=f"gets audio|{videoid}",
             ),
             InlineKeyboardButton(
-                text="⬇️ ᴠɪᴅᴇᴏ",
+                text="⬇️ فيديو",
                 callback_data=f"gets video|{videoid}",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="ʙᴀᴄᴋ",
+                text="رجــوع",
                 callback_data="cbhome",
             )
         ],
@@ -94,7 +94,7 @@ close_mark = InlineKeyboardMarkup(
   [
     [
       InlineKeyboardButton(
-        "• ᴄʟᴏsᴇ •", callback_data="cls"
+        "• اغلاق •", callback_data="cls"
       )
     ]
   ]
@@ -105,7 +105,7 @@ back_mark = InlineKeyboardMarkup(
   [
     [
       InlineKeyboardButton(
-        "• ʙᴀᴄᴋ •", callback_data="cbmenu"
+        "• رجوع •", callback_data="cbmenu"
       )
     ]
   ]
