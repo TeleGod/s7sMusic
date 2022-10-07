@@ -39,11 +39,10 @@ async def _human_time_duration(seconds):
 @Client.on_message(other_filters2)
 async def start(_, message: Message):
         await message.reply_text(
-        f"""مرحبا {message.from_user.mention()}, انا {BOT_NAME}.
+        f"""مرحبا {message.from_user.mention()}, انا بوت  {BOT_NAME}.
         
-• استطيع تشغيل الموسيقي بدون تقطيع وبجوده فائقه في الجروبات والقنوات
-
-• لا تتردد في إضافتي إلى مجموعاتك.
+انا بوت تشغيل موسيقي في الجروبات والقنوات بدون تقطيع على افضل سورس في التليجرام
+تقدر تعرف طريقة استخدام البوت من الازرار الموجوده بالاسفل.
         """,
         reply_markup=InlineKeyboardMarkup(
             [
@@ -73,7 +72,7 @@ async def start(_, message: Message):
         ),
      disable_web_page_preview=True
     )
-
+    
 @Client.on_message(command(["مبرمج السورس", f"صلاح", f"سحس", f"المبرمج"]) & filters.group & ~filters.edited)
 async def start(client: Client, message: Message):
     await message.reply_photo(
@@ -82,7 +81,7 @@ async def start(client: Client, message: Message):
         reply_markup=InlineKeyboardMarkup(
          [
             [
-                InlineKeyboardButton("DEV SALAH", url=f"https://t.me/BK_ZT"),
+                InlineKeyboardButton("SaLah HemDan", url=f"https://t.me/BK_ZT"),
             ],
             [
                 InlineKeyboardButton(
